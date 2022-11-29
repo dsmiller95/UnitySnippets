@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Unity singleton pattern</Title>
+			<Author>Dman</Author>
+			<Description>implements a lazy-retrieval singleton patter</Description>
+			<Shortcut>singleton</Shortcut>
+        </Header>
+        <Snippet>
+            <Code 
+			Language="CSharp"
+			Kind="method decl">
+                <![CDATA[
+		private static $className$ _instance;
+        public static $className$ $singletonName$
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = GameObject.FindObjectOfType<$className$>();
+                }
+                return _instance;
+            }
+        }]]>
+            </Code>
+			<Declarations>
+				<Literal>
+					<ID>singletonName</ID>
+					<Default>Instance</Default>
+				</Literal>
+				<Literal default="true" Editable="false">
+					<ID>className</ID>
+                    <Function>ClassName()</Function>
+					<ToolTip>The name of the implementing class</ToolTip>
+					<Default>MyClassName</Default>
+				</Literal>
+			</Declarations>
+			<Imports>
+				<Import>
+					<Namespace>UnityEngine</Namespace>
+				</Import>
+			</Imports>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

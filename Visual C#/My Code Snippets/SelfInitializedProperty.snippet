@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Self initilized property</Title>
+			<Author>Dman</Author>
+			<Description>implements a property getter which initialized on first access</Description>
+			<Shortcut>propself</Shortcut>
+        </Header>
+        <Snippet>
+            <Code 
+			Language="CSharp"
+			Kind="method decl">
+                <![CDATA[
+		private $variableTypeName$ _$name$;
+        public $variableTypeName$ $name$
+        {
+            get
+            {
+                if (_$name$ == default)
+                {
+                    _$name$ = $initialization$;
+                }
+                return _$name$;
+            }
+        }]]>
+            </Code>
+			<Declarations>
+				<Literal>
+					<ID>variableTypeName</ID>
+					<ToolTip>the type of the variable</ToolTip>
+					<Default>int</Default>
+				</Literal>
+				<Literal>
+					<ID>name</ID>
+					<Default>value</Default>
+				</Literal>
+				<Literal>
+					<ID>initialization</ID>
+					<Default>0</Default>
+				</Literal>
+				<Literal>
+					<ID>singletonName</ID>
+					<Default>Instance</Default>
+				</Literal>
+			</Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
